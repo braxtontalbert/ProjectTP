@@ -21,8 +21,10 @@ public class PlayerMovement : MonoBehaviour
 
         xMove = Input.GetAxisRaw("Horizontal");
         zMove = Input.GetAxisRaw("Vertical");
-        playerRigidbody.velocity = new Vector3(xMove, playerRigidbody.velocity.y, zMove) * currentSpeed;
-        //transform.forward = playerRigidbody.velocity;
+        Vector3 direction = new Vector3(xMove, playerRigidbody.velocity.y, zMove) * currentSpeed;
+
+
+        playerRigidbody.velocity = direction;
         MouseCameraMove();
     }
     void MouseCameraMove()
